@@ -16,7 +16,7 @@ const style = {
     p: 4,
   };
 
-  export default function LoginModal() {
+ function LoginModal() {
     const navigate = useNavigate();
     const handleClose = () => {
         navigate(-1);
@@ -36,3 +36,5 @@ const style = {
         </div>
       );
     }
+
+    export default LoginModal;

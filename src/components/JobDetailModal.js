@@ -40,6 +40,7 @@ function JobDetailModal() {
   useEffect(() => {
     const fetchSingleJob = async () => {
       const data = await fetchData.getSingleJob(id);
+      console.log(data);
       setSingleJob(data.singleJob);
     };
     fetchSingleJob();
@@ -80,7 +81,7 @@ function JobDetailModal() {
         m: 1,
         marginTop:'20px'
         }}>
-          {singleJob?.skills.slice(0,4).map(skill => 
+          {singleJob?.skills.slice(0,3).map(skill => 
           <Chip label={skill} sx={{ backgroundColor:"#ef9a9a"}}  />
             )} 
             </Box>     

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import fetchData from "../data/fetchdata";
+import fetchData from "../data/fetchData";
 import { Navigate, useParams } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 

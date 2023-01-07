@@ -7,9 +7,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import InputIcon from '@mui/icons-material/Input';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from "../auth/AuthContext";
 
 
@@ -59,6 +60,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function SearchAppBar() {
   const navigate = useNavigate();
   const auth = useAuth();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const q = searchParams.get("q");
 
 
   const handleLogin = () => {
@@ -69,12 +72,21 @@ function SearchAppBar() {
       navigate("/")
     });
   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let formData = new FormData(event.target);
+    let q = formData.get("q");
+    setSearchParams({ q: q });
+  };
 
   return (
     <Box sx={{ flexGrow: 1}}>
       <AppBar position="static">
         <Toolbar >
           <Typography
+            onClick={() => {
+              navigate("/")
+            }}
             variant="h6"
             noWrap
             component="div"
@@ -82,12 +94,14 @@ function SearchAppBar() {
           >
             Job Routing
           </Typography>
-          <Box sx={{flexGrow: 1}}>
-          <Search>
+          <Box component="form" onSubmit={handleSubmit}>
+          <Search sx={{cursor: "pointer"}} >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
+              name='q'
+              value={q}
               placeholder="Search job…"
               inputProps={{ 'aria-label': 'search' }}
             />
@@ -95,21 +109,22 @@ function SearchAppBar() {
           </Box>
           <Box sx={{flexGrow: 1}} />
             {auth?.user ? (
-              <>
-              <Button 
-              variant="text"
+             <Button 
+              sx={{cursor: "pointer"}}
+              variant="contained"
               onClick={handleLogout}
+              startIcon={<LogoutIcon />}
               >
-                <AccountCircleIcon />
+              <AccountCircleIcon />
                 Logout
               </Button>
-              </>
             ) : ( 
               <Button 
+              sx={{cursor: "pointer"}}
+              startIcon={<LoginIcon />}
               variant='contained'
               onClick={handleLogin}
               >
-               <InputIcon />
                Login
               </Button>
             )}

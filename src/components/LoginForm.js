@@ -13,9 +13,8 @@ import { Button, Typography } from '@mui/material';
 import  { useAuth } from "../auth/AuthContext";
 
 const style = {
-    backgroundColor: 'rgba(13, 12, 12, 0.1)',
+    backgroundColor: '#fff',
     display: 'flex',
-    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     width: '300px',

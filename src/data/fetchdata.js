@@ -21,7 +21,8 @@ fetchData.getSingleJob = async (id) => {
     try {
         const res = await fetch(jobUrl);
         const dataJob = await res.json();
-        return dataJob;
+        return {
+            singleJob: dataJob};
     } catch (error) {
         console.log("error", error)
     }

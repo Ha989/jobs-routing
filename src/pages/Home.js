@@ -2,7 +2,7 @@ import React,  { useState, useEffect } from 'react';
 import Pagination from '@mui/material/Pagination';
 import Grid from '@mui/material/Grid';
 import { useSearchParams } from 'react-router-dom';
-import fetchData from "../data/fetchdata";
+import fetchData from "../data/fetchData";
 import JobCard from '../components/JobCard';
 import { Box } from '@mui/system';
 
