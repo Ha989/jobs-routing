@@ -28,5 +28,17 @@ fetchData.getSingleJob = async (id) => {
     }
 }
 
+fetchData.getQuery = async (q) => {
+    const urlQuery = `http://localhost:4000/jobs/${q}`
+    try {
+        const response = await fetch(urlQuery);
+        const q = await response.json();
+        return {
+            q
+        }
+    } catch (error) {
+        console.log("error", error)
+    }
+}
 
 export default fetchData;

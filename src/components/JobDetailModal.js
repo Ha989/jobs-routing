@@ -13,11 +13,11 @@ import { styled } from "@mui/material/styles";
 
 const CardStyle = styled(Card)(({ theme }) => ({
   Width: "400px",
-  height: "400px",
-  marginTop: "40px",
+  minHeight: {xs: 500, md: 300},
+  marginTop: "100px",
   marginLeft: "20px",
   marginRight: "20px",
-  backgroundColor: "rgba(255, 255, 255, 0.2)",
+  backgroundColor: "rgba(27, 20, 100,0.5)",
   borderRadius: "20px",
 }));
 
@@ -26,8 +26,8 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: { xs: "90%", md: 600 },
-  backgroundColor: "background.paper",
+  width: { xs: "50%", md: 600 },
+  backgroundColor: "black",
   borderRadius: 2
 };
 
@@ -67,7 +67,7 @@ function JobDetailModal() {
           <Typography
             variant="h4"
             component="div"
-            sx={{ color: "#4e342e", textAlign:'center', paddingBottom:'20px'}}
+            sx={{ color: "#fff", textAlign:'center', paddingBottom:'20px'}}
           >
             {singleJob?.title}
           </Typography>
@@ -81,15 +81,15 @@ function JobDetailModal() {
         m: 1,
         marginTop:'20px'
         }}>
-          {singleJob?.skills.slice(0,3).map(skill => 
-          <Chip label={skill} sx={{ backgroundColor:"#ef9a9a"}}  />
+          {singleJob?.skills.slice(0,3).map((skill) => 
+          <Chip key={skill} label={skill} sx={{ backgroundColor:"#fff"}}  />
             )} 
             </Box>     
       </Typography>
-          <Typography sx={{ color: "#black", marginTop: "30px", textAlign:"center" }} className="job-description-main">
+          <Typography sx={{ color: "#fff", marginTop: "30px", textAlign:"center" }} className="job-description-main">
             {singleJob?.description}
           </Typography>
-          <Typography variant="h6" component="div" sx={{ textAlign:"center", paddingTop:"40px"}}>
+          <Typography variant="h6" component="div" sx={{ textAlign:"center", paddingTop:"40px", color: "#fff"}}>
                 City: {singleJob?.city}
               </Typography>
             </CardContent>

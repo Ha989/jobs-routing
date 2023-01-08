@@ -13,7 +13,7 @@ import { Button, Typography } from '@mui/material';
 import  { useAuth } from "../auth/AuthContext";
 
 const style = {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -21,6 +21,8 @@ const style = {
     border: "1px solid rgba(13, 12, 12, 0.2)",
     padding: "10px",
     borderRadius: "5px",
+    marginLeft: {xs: "45px", md: "40%"},
+    marginBottom: {xs: 50, md: 20}
 }
 
 
@@ -45,7 +47,7 @@ function LoginForm({ callback }) {
 
   return (
     <Box sx={style} component="form" gap={4} >
-    <div>
+      <div>
         <Typography variant='h4' component="div" textAlign="center">
            Login 
         </Typography>
@@ -79,14 +81,17 @@ function LoginForm({ callback }) {
             label="Password"
           />
         </FormControl>
+        <Box sx={{display: 'flex', justifyContent: "center"}}>
         <Button
             onClick={handleLogin}
             sx={{ m: 1, width: "10ch"}}
             variant="contained"
+      
             >
             Login
         </Button>
-    </div>
+        </Box>
+        </div>
     </Box>
 )
 }

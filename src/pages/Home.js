@@ -27,11 +27,12 @@ function Home() {
 
   return (
     <>
-    <Box sx={{ padding: 7}}>
+    <Box sx={{ padding: 5}}>
     <Grid container spacing={3}>
-        {jobs.map((job) => (
-          <Grid key={page}item xs={12} md={8} lg={4}>
+        {jobs.map((job, index) => (
+          <Grid key={index} item xs={12} md={6} lg={4}>
             <JobCard 
+             key={job.id}
              id={job.id}
              title={job.title}
              description={job.description}
@@ -47,7 +48,7 @@ function Home() {
          <Pagination 
          count={pagesTotal} 
          variant="outlined" 
-         color="primary"
+         color="secondary"
          onChange={(e, value) => {
             setPage(value)
          }} />

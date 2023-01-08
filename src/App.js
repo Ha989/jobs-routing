@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import './App.css';
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Home from './pages/Home';
@@ -7,6 +7,9 @@ import Layout from './pages/Layout';
 import Login from "./pages/Login";
 import JobDetailModal from './components/JobDetailModal';
 import LoginModal from './components/LoginModal';
+import ThemeProvider from './theme/theme';
+
+
 
 function App() {
   const location = useLocation();
@@ -22,6 +25,7 @@ function App() {
   }
 
   return (
+    <ThemeProvider>
      <>
      <Routes 
        location={
@@ -32,8 +36,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path='/login' element={<Login/>} />
         </Route>
-        <Route sx={{textAlign: 'center'}} path='*' element={<main><p>There's nothing here!</p></main>}
-        />
+        <Route path='*' element={<p>There's nothing here!</p>} />
         <Route path='/job/:id' 
            element={
             <RequireAuth>
@@ -49,6 +52,7 @@ function App() {
       )}
       
      </>
+     </ThemeProvider>
   );
 }
 

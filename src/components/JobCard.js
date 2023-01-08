@@ -11,12 +11,10 @@ import { Link } from "react-router-dom";
 import {styled} from "@mui/material/styles"
 
 const CardStyle = styled(Card)(({ theme }) => ({
-  minWidth: "400px",
-  height: "450px",
-  marginTop: "40px",
-  marginLeft: "20px",
-  marginRight: "20px",
-  backgroundColor: "rgba(255, 255, 255, 0.5)",
+  minWidth: "300px",
+  minHeight: "380px",
+  marginTop: "80px",
+  backgroundColor: "rgba(255, 255, 255, 0.8)",
   borderRadius: "20px",
   display: 'flex',
   fontSize: '12px',
@@ -33,7 +31,6 @@ function JobCard({ description, skills, id, title, salaryHigh, city }) {
       direction="column"
       justifyContent="space-between"
       alignItems="center"
-      padding='5px'
       >
         <CardContent>
           <Typography
@@ -54,7 +51,7 @@ function JobCard({ description, skills, id, title, salaryHigh, city }) {
                   textAlign:'center',
                   m: 1
               }}>
-              {skills?.slice(0,3).map(skill => 
+              {skills?.slice(0,2).map(skill => 
                 <Chip key={skill} label={skill} sx={{backgroundColor: "#c8c6c6"}}/>
                 )}
             </Box>
@@ -74,7 +71,7 @@ function JobCard({ description, skills, id, title, salaryHigh, city }) {
          variant="contained"
          component={Link}
          to={`/job/${id}`}
-         sx={{ width: "100", backgroundColor: "oranged"}}
+         sx={{ width: "100", m: "10px"}}
         >
          Learn More
         </Button>

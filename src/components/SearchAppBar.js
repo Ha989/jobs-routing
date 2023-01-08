@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -57,11 +57,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+
 function SearchAppBar() {
   const navigate = useNavigate();
   const auth = useAuth();
   const [searchParams, setSearchParams] = useSearchParams();
-  const q = searchParams.get("q");
+  let q = searchParams.get("q");
+
 
 
   const handleLogin = () => {
@@ -74,7 +76,7 @@ function SearchAppBar() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    let formData = new FormData(event.target);
+    let formData = new FormData(event.target.value);
     let q = formData.get("q");
     setSearchParams({ q: q });
   };
@@ -95,13 +97,13 @@ function SearchAppBar() {
             Job Routing
           </Typography>
           <Box component="form" onSubmit={handleSubmit}>
-          <Search sx={{cursor: "pointer"}} >
+          <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               name='q'
-              value={q}
+              defaultValue={q ?? undefined}
               placeholder="Search job…"
               inputProps={{ 'aria-label': 'search' }}
             />
@@ -124,6 +126,7 @@ function SearchAppBar() {
               startIcon={<LoginIcon />}
               variant='contained'
               onClick={handleLogin}
+              color="secondary"
               >
                Login
               </Button>
