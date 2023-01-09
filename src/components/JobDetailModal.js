@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import CardContent from "@mui/material/CardContent";
 import { useNavigate, useParams } from "react-router-dom";
-import fetchData from "../data/fetchData";
+import fetchData from "../data/fetchdata";
 import { Chip } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Card from "@mui/material/Card";
