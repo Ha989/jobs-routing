@@ -23,6 +23,7 @@ const Search = styled('div')(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
+  color: "#1e272e",
   width: '50%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
@@ -116,6 +117,7 @@ function SearchAppBar() {
               variant="contained"
               onClick={handleLogout}
               startIcon={<LogoutIcon />}
+              color="secondary"
               >
               <AccountCircleIcon />
                 Logout

@@ -8,7 +8,7 @@ import {
 const PRIMARY = {
   lighter: "#f9e9e9",
   light: "rgba(153, 128, 250,0.3)",
-  main: "rgba(153, 128, 250,1.0)",
+  main: "rgba(153, 128, 250,0.8)",
   dark: "rgba(153, 128, 250,0.6)",
   darker: "#000",
   contrastText: "#FFF",
@@ -58,7 +58,7 @@ function ThemeProvider({ children }) {
       secondary: SECONDARY,
       success: SUCCESS,
       text: { primary: GREY[800], secondary: GREY[600], disabled: GREY[500] },
-      background: { paper: "#fff", default: "#fff", neutral: GREY[200] },
+      background: { paper: "#130f40", default: "#130f40", neutral: GREY[200] },
       action: {
         active: GREY[600],
         hover: GREY[500_8],

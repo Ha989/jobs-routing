@@ -71,7 +71,7 @@ function JobCard({ description, skills, id, title, salaryHigh, city }) {
          variant="contained"
          component={Link}
          to={`/job/${id}`}
-         sx={{ width: "100", m: "10px"}}
+         sx={{ width: "100", m: "10px", backgroundColor: "primary"}}
         >
          Learn More
         </Button>
