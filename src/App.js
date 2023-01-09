@@ -6,7 +6,6 @@ import { useAuth } from './auth/AuthContext';
 import Layout from './pages/Layout';
 import Login from "./pages/Login";
 import JobDetailModal from './components/JobDetailModal';
-import LoginModal from './components/LoginModal';
 import ThemeProvider from './theme/theme';
 
 
