@@ -7,6 +7,7 @@ import Layout from './pages/Layout';
 import Login from "./pages/Login";
 import JobDetailModal from './components/JobDetailModal';
 import ThemeProvider from './theme/theme';
+import PageNotFound from './pages/PageNotFound';
 
 
 
@@ -35,7 +36,8 @@ function App() {
             <Route index element={<Home />} />
             <Route path='/login' element={<Login/>} />
         </Route>
-        <Route path='*' element={<p>There's nothing here!</p>} />
+  
+        <Route path='*' element={<PageNotFound />} />
         <Route path='/job/:id' 
            element={
             <RequireAuth>
@@ -43,6 +45,7 @@ function App() {
             </RequireAuth>
             }
         ></Route>
+         
      </Routes>
       {state?.backgroundLocation && (
         <Routes>

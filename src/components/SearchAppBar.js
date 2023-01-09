@@ -59,6 +59,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
+
+
 function SearchAppBar() {
   const navigate = useNavigate();
   const auth = useAuth();
@@ -77,9 +79,9 @@ function SearchAppBar() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    let formData = new FormData(event.target.value);
+    let formData = new FormData(event.currentTarget);
     let q = formData.get("q");
-    setSearchParams({ q: q });
+    setSearchParams({ q: q});
   };
 
   return (
@@ -97,19 +99,23 @@ function SearchAppBar() {
           >
             Job Routing
           </Typography>
+      
           <Box component="form" onSubmit={handleSubmit}>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
+           
             <StyledInputBase
               name='q'
               defaultValue={q ?? undefined}
               placeholder="Search job…"
               inputProps={{ 'aria-label': 'search' }}
             />
+       
           </Search>
           </Box>
+  
           <Box sx={{flexGrow: 1}} />
             {auth?.user ? (
              <Button 
